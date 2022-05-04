@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const userControllers = require('../controllers/userControllers')
 
-router.get('/', isLoggedIn, userControllers.showUserIndex);
-router.get('/watchlist', isLoggedIn, userControllers.showWatchlist);
-router.post('/watchlist', isLoggedIn, userControllers.addToWatchlist);
-router.delete('/watchlist/:id', isLoggedIn, userControllers.deleteFromWatchlist);
+// /user
+/* router.get('/home', isLoggedIn, userControllers.);
+router.get('/home/:id', isLoggedIn, userControllers.);
+router.post('/newpost', isLoggedIn, userControllers.); */
+
 
 
 // SHOULD I LEAVE REDIRECT FOR AUTH?????
