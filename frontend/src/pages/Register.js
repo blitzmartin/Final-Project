@@ -37,12 +37,12 @@ export default function Register() {
                         password: userData.password
                     })
                 };
-                fetch("/login", requestOptions)
+                fetch("/register", requestOptions)
                     .then(res => {
                         if (res.status === 200) {
                             setAuth(true);
                             setUser(userData.username)
-                            navigate('/home', { replace: true });
+                            navigate('/login', { replace: true });
                         }
                         setUserData({
                             username: "",
