@@ -1,12 +1,3 @@
-:root{
-  --color-light: whitesmoke;
-  --color-dark:  #282c34;
-  --color-primary: #0f659a;
-  --color-accent: #f6b717;
-  --font-primary: 'Roboto', sans-serif;
-  --font-accent: 'Merriweather Sans', sans-serif;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;

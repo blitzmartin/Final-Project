@@ -4,7 +4,7 @@
   --color-light: whitesmoke;
   --color-dark:  #282c34;
   --color-primary: #0f659a;
-  --color-accent: #f6b717;
+  --color-accent: #ff6700;
   --font-primary: 'Roboto', sans-serif;
   --font-accent: 'Merriweather Sans', sans-serif;
 }
@@ -13,7 +13,7 @@
   text-align: center;
   position: relative;
   min-height: 100vh;
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
   font-family: var(--font-primary);
   font-size: 1rem;
 }
@@ -90,11 +90,24 @@ a {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 3rem;
+  height: 4rem;
   background-color: #282c34;
   color: whitesmoke;
   padding: 1rem 0;
   font-size: 0.8rem;
+}
+
+.Footer h4{
+  margin-top: 0.2rem;
+}
+
+.Footer a{
+  color: white;
+  margin: 0 0.3rem;
+}
+
+.Footer a:hover{
+  color: var(--color-accent);
 }
 
 /******** MAIN CONTENT ********/
