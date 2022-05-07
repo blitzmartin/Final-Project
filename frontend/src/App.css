@@ -13,7 +13,7 @@
   text-align: center;
   position: relative;
   min-height: 100vh;
-  padding-bottom: 2.5rem;
+  padding-bottom: 3rem;
   font-family: var(--font-primary);
   font-size: 1rem;
 }
@@ -87,11 +87,10 @@ a {
 /******** FOOTER ********/
 .Footer {
   text-align: center;
-  align-items: center;
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
+  height: 3rem;
   background-color: #282c34;
   color: whitesmoke;
   padding: 1rem 0;
