@@ -75,7 +75,7 @@ h1, h2, h3, p {
 }
 
 .nav-bar li a:hover {
-  text-decoration: underline;
+  text-decoration: overline;
   font-weight: 500;
 }
 

@@ -20,7 +20,7 @@ export default function NewPost() {
             <label>Title:</label>
             <input type='text' placeholder='Title' onChange={handleChange} value={title} />
             <label>Post:</label>
-            <textarea placeholder='New post...' rows="15" col="30" value={text} />
+            <textarea placeholder='Write here...' rows="18" col="30" value={text} />
             <button onClick={handleClick}>Publish</button>
         </div>
     )
