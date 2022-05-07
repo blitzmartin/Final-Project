@@ -27,8 +27,8 @@ function App() {
                 <Route path='/newpost' element={<NewPost />} />
               </Routes>
             </Router>
+            <Footer />
     </div>
-    <Footer />
     </>
   
   );

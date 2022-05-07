@@ -11,16 +11,33 @@
     padding: 0;
     font-weight: 300;
   }
+  /******** HEADER ********/
+  .Header {
+    background-color: var(--color-light);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: var(--color-dark);
+    padding: 0.2rem 1rem;
+  }
 
-  .container {
+  .loginContainer {
     margin: 10% auto;
     padding: 80px 0;
     text-align: center;
   }
   
-  .container h2 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+  .loginContainer h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .loginTitleDiv{
+    width: 250px;
+    margin: 0 auto;
   }
   
   input {
@@ -41,37 +58,17 @@
   button {
     appearance: none;
     outline: 0;
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
     border: 0;
     padding: 10px 15px;
-    color: var(--color-primary);
+    color: white;
     border-radius: 3px;
     width: 250px;
     font-size: 18px;
   }
 
   button:hover {
-    background-color: var(--color-primary);
-    color: white;
-  }
-
-  .logoutBtn {
-    background-color: #282c34;
-    border: 0;
-    padding: 1rem 0;
-    margin: 0 1rem;
-    color: white;
-    border-radius: 3px;
-    font-size: 1rem;
-  }
-  .logoutBtn:hover {
-    background-color: white;
-    color: rgb(235, 33, 44);
-  }
-  
-  .registerMsg {
-    color:rgb(235, 33, 44);
-    font-size: 1rem;
-    margin-top: 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-primary); 
   }
   
