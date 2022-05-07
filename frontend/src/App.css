@@ -1,20 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;700&family=Roboto:wght@300&display=swap');
+
 :root{
   --color-light: whitesmoke;
   --color-dark:  #282c34;
   --color-primary: #0f659a;
   --color-accent: #f6b717;
+  --font-primary: 'Roboto', sans-serif;
+  --font-accent: 'Merriweather Sans', sans-serif;
 }
 
 .App {
   text-align: center;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 2.5rem;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+}
+
+h1, h2 {
+  font-family: var(--font-primary);
+  font-family: var(--font-accent);
+  font-weight: bold;
 }
 
 h1{
   color: var(--color-accent);
+  font-size: 2.5rem;
 }
 
 h2{
   color: var(--color-primary);
+  font-size: 1.5rem;
+}
+
+h3{
+  color: var(--color-primary);
+  font-size: 1.2rem;
+}
+
+h1, h2, h3, p {
+  margin: 0.5rem 0 0.7rem 0;
 }
 
 /******** HEADER ********/
@@ -24,7 +50,7 @@ h2{
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: var(--color-dark);
   padding: 0.2rem 1rem;
 }
@@ -52,12 +78,21 @@ h2{
   font-weight: 500;
 }
 
+a {
+  text-decoration: none;
+}
+
 
 /******** FOOTER ********/
 .Footer {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
   background-color: #282c34;
   color: whitesmoke;
-  padding: 0.6rem;
+  padding: 1rem;
   font-size: 0.8rem;
 }
 
