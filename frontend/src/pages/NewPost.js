@@ -18,9 +18,9 @@ export default function NewPost() {
         <div className="newpostContainer">
             <h2>Compose:</h2>
             <label>Title:</label>
-            <input type='text' placeholder='Title' onChange={handleChange} value={title} />
+            <input type='text' placeholder='Title' onChange={(e)=>setTitle(e.target.value)} value={title} />
             <label>Post:</label>
-            <textarea placeholder='Write here...' rows="18" col="30" value={text} />
+            <textarea placeholder='Write here...' rows="18" col="30" onChange={(e)=>setText(e.target.value)} value={text} />
             <button className="publishBtn" onClick={handleClick}>Publish</button>
         </div>
     )

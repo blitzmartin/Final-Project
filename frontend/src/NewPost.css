@@ -33,7 +33,7 @@
     border-radius: 3px;
     padding: 10px 15px;
     display: block;
-    text-align: center;
+    text-align: left;
     font-family: var(--font-primary);
     font-size: 1rem;
     color: var(--color-dark);
