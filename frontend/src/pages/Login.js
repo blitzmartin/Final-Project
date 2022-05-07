@@ -19,9 +19,9 @@ export default function Login() {
         <>
             <div className="loginContainer">
                 <div className="loginTitleDiv"><h2>Please enter your credentials to login:</h2></div>
-                <input type='text' name="username" placeholder='Username' onChange={handleChange} value={userData.username} />
-                <input type='password' name='password' placeholder='Password' onChange={handleChange} value={userData.password} />
-                <button onClick={handleClick}>Login</button>
+                <input className="loginInput" type='text' name="username" placeholder='Username' onChange={handleChange} value={userData.username} />
+                <input className="loginInput"  type='password' name='password' placeholder='Password' onChange={handleChange} value={userData.password} />
+                <button className="loginBtn" onClick={handleClick}>Login</button>
             </div>
         </>
     )

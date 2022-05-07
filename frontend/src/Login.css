@@ -1,9 +1,11 @@
 :root{
-    --color-light: whitesmoke;
-    --color-dark:  #282c34;
-    --color-primary: #0f659a;
-    --color-accent: #f6b717;
-  }
+  --color-light: whitesmoke;
+  --color-dark:  #282c34;
+  --color-primary: #0f659a;
+  --color-accent: #f6b717;
+  --font-primary: 'Roboto', sans-serif;
+  --font-accent: 'Merriweather Sans', sans-serif;
+}
 
 * {
     box-sizing: border-box;
@@ -25,7 +27,8 @@
 
   .loginContainer {
     margin: 10% auto;
-    padding: 80px 0;
+    padding: 0;
+    width: 500px;
     text-align: center;
   }
   
@@ -40,22 +43,21 @@
     margin: 0 auto;
   }
   
-  input {
+  .loginInput {
     border: 1px solid rgba(252, 252, 252, 0.4);
-    background-color: rgba(120, 47, 47, 0.2);
+    background-color: rgba(101, 96, 80, 0.059);
     width: 250px;
+    margin: 10px auto;
     border-radius: 3px;
-    font-family: "Source Sans Pro", sans-serif;
     padding: 10px 15px;
-    margin: 0 auto 10px auto;
     display: block;
     text-align: center;
-    font-size: 18px;
-    color: white;
-    font-weight: 300;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    color: var(--color-dark);
   }
   
-  button {
+  .loginBtn {
     appearance: none;
     outline: 0;
     background-color: var(--color-primary);
@@ -67,7 +69,7 @@
     font-size: 18px;
   }
 
-  button:hover {
+ .loginBtn:hover {
     background-color: var(--color-accent);
     color: var(--color-primary); 
   }
