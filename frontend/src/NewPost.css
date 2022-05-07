@@ -15,7 +15,8 @@
   }
 
   .newpostContainer {
-    margin: 5% 15%;
+    margin: 5% auto;
+    width: 800px;
     padding: 0;
     text-align: left;
   }
@@ -54,11 +55,12 @@
     margin-bottom: 1rem;
   }
   
-  button {
+ .publishBtn {
     appearance: none;
     outline: 0;
     background-color: var(--color-primary);
     border: 0;
+    margin: 5px 0;
     padding: 10px 15px;
     color: white;
     border-radius: 3px;
@@ -68,7 +70,7 @@
     font-family: var(--font-primary);
   }
 
-  button:hover {
+  .publishBtn:hover {
     background-color: var(--color-accent);
     color: var(--color-primary);
   }
