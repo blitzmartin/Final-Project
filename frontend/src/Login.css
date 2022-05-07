@@ -54,6 +54,7 @@
     background-color: var(--color-primary);
     border: 0;
     padding: 10px 15px;
+    margin-bottom: 15px;
     color: white;
     border-radius: 3px;
     width: 250px;

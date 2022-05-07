@@ -3,10 +3,15 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     username: { type: String },
     password: { type: String },
-    favorite: [ {
+    favorite: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Movie",
-        default : []
+        default: [{
+            title: "",
+            content: "",
+            date: "",
+            id: ""
+        }]
     }]
 })
 
