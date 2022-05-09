@@ -26,7 +26,7 @@ const onePost = function (req, res) {
 
 // POST for /user/newpost (private)
 // Create new post
-async function createPost(req, res) {
+async function createPost(req, res, next) {
   try {
       let today = new Date();
       let DD = today.getDate();
@@ -34,15 +34,18 @@ async function createPost(req, res) {
       let YYYY = today.getFullYear();
       let date = `${DD}/${MM}/${YYYY}`;
       date = date.toString();
-      const newPost = await blogModel.create({
-          title: req.body.postTitle,
-          content: req.body.postContent,
+      const newPost = await postsModel.create({
+          title: req.body.title,
+          content: req.body.content,
           date: date
       })
-      //  console.log(JSON.stringify(post)); log posts array
-      res.redirect('/');
+      res.status(200).json({
+        title: newPost.title,
+        content: newPost.content
+      });
   } catch (err) {
       console.log(err);
+      next(error);
   }
 }
 

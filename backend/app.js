@@ -66,11 +66,11 @@ app.use(passport.session());
 
 // Require routes
 const authRouter= require ('./routes/authRoutes');
-const publicRouter = require('./routes/publicRoutes');
+const userRouter = require('./routes/userRoutes');
 
 // Use routes
 app.use('/auth', authRouter);
-app.use('/login', publicRouter);
+app.use('/user', userRouter);
 
 // Server running
 const port = process.env.PORT || 5000;
