@@ -21,8 +21,8 @@ export default function Main() {
 
     return (
         <div className="mainContent">
-            <h1>MAIN CONTENT</h1>
-            <h2>Here I will show all the posts</h2>
+            <h1>MY BLOG</h1>
+            <h2>Daily journal for every user</h2>
 
             {posts.map((post) => {
                 return (

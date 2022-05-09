@@ -49,16 +49,14 @@ async function createPost(req, res, next) {
 
 // Deletes post
 const deletePost = function (req, res) {
-  watchlistModel.findOne({ _id: req.params.id })
+  postsModel.findByIdAndRemove({ _id: req.body.postid })
     .then(data => {
-      if (!err) {
-        data.pull(req.body.postid);;
-        data.save()
-        res.status(200).json(user)
-      }
+        console.log(data);
+        res.status(200).json(data)
     })
-    .catch((err) => console.errror(err.message))
+    .catch((err) => console.log(err))
 }
+
 
 
 module.exports = { showPosts, onePost, createPost, deletePost };

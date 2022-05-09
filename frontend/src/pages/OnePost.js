@@ -22,7 +22,6 @@ export default function Main() {
                     content: data[0].content,
                     date: data[0].date
                 });
-                console.log(post)
             })
             .catch(err => console.log(err))
         return
@@ -37,7 +36,7 @@ export default function Main() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                postid: post[0]._id
+                postid: post._id
             })
         };
         fetch("/user/deletepost/", requestOptions)
