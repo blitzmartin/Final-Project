@@ -9,6 +9,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import NotFound from './pages/NotFound'
 import Home from './pages/Home'
+import OnePost from './pages/OnePost'
 import NewPost from './pages/NewPost'
 
 export const UserContext = React.createContext();
@@ -25,6 +26,7 @@ function App() {
                 <Route path='*' element={<NotFound />} />
                 <Route path='/' element={<Login />} />
                 <Route path='/home' element={<Home />} />
+                <Route path='/home/:id' element={<OnePost />} />
                 <Route path='/newpost' element={<NewPost />} />
                 <Route path='/register' element={<Register />} />
               </Routes>

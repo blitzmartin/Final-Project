@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Main() {
 
@@ -24,12 +25,15 @@ export default function Main() {
             <h2>Here I will show all the posts</h2>
 
             {posts.map((post) => {
-                console.log(post)
                 return (
                     <div key={post._id}>
-                        <h3>{post.title}</h3>
+                        <h3><Link
+                            to={`/home/${post._id}`}
+                        >{post.title}</Link></h3>
                         <h4><em>{post.date}</em></h4>
-                        <p>{post.content}</p>
+                        <p>{post.content.substring(0, 200)}...<Link
+                            to={`/home/${post._id}`}
+                        >Read more...</Link></p>
                     </div>
                 )
             })}
