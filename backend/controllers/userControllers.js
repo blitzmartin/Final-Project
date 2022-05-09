@@ -60,14 +60,5 @@ const deletePost = function (req, res) {
     .catch((err) => console.errror(err.message))
 }
 
-const deleteFromFavorite = function (req, res) {
-  userModel.findOne({ username: req.body.username })
-    .then(user => {
-        user.favorite.pull(req.body.movieid);;
-        user.save()
-        res.status(200).json(user)
-    })
-    .catch((err) => console.error(err.message))
-}
 
 module.exports = { showPosts, onePost, createPost, deletePost };
