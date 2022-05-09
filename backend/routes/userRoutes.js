@@ -6,6 +6,7 @@ const userControllers = require('../controllers/userControllers')
 router.get('/home', userControllers.showPosts);
 router.get('/home/:id',  userControllers.onePost);
 router.post('/newpost', userControllers.createPost);
+router.post('/deletepost', userControllers.deletePost)
 
 
 module.exports = router;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate  } from 'react-router-dom'
 
 export default function Main() {
 
@@ -9,15 +9,15 @@ export default function Main() {
          content: '', 
          date: ''
     });
-
+    const navigate = useNavigate();
     const URL = `/user/home/${params.id}`; 
-    //console.log(URL);
 
     function getOnePost() {
         fetch(URL)
             .then(res => res.json())
             .then(data => {
                 setPost({
+                    _id: data[0]._id,
                     title: data[0].title,
                     content: data[0].content,
                     date: data[0].date
@@ -32,12 +32,29 @@ export default function Main() {
         getOnePost();
     }, [])
 
+    function handleClick(){
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                postid: post[0]._id
+            })
+        };
+        fetch("/user/deletepost/", requestOptions)
+            .then(res => {
+                if (res.status === 200) {
+                    navigate('/home', { replace: true });
+                }
+            });
+    }
+
     return (
         <div className="mainContent">
                     <div key={post._id}>
                         <h3>TITLE: {post.title}</h3>
                         <h4><em>DATE: {post.date}</em></h4>
                         <p>CONTENT: {post.content}</p>
+                        <button onClick={handleClick}>Delete</button>
                     </div>
         </div>
     )

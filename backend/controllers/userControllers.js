@@ -49,14 +49,25 @@ async function createPost(req, res, next) {
 
 // Deletes post
 const deletePost = function (req, res) {
-  watchlistModel.findByIdAndRemove({ _id: req.params.id })
+  watchlistModel.findOne({ _id: req.params.id })
     .then(data => {
       if (!err) {
-        console.log(data);
-        res.status(200).json(data)
+        data.pull(req.body.postid);;
+        data.save()
+        res.status(200).json(user)
       }
     })
     .catch((err) => console.errror(err.message))
+}
+
+const deleteFromFavorite = function (req, res) {
+  userModel.findOne({ username: req.body.username })
+    .then(user => {
+        user.favorite.pull(req.body.movieid);;
+        user.save()
+        res.status(200).json(user)
+    })
+    .catch((err) => console.error(err.message))
 }
 
 module.exports = { showPosts, onePost, createPost, deletePost };
