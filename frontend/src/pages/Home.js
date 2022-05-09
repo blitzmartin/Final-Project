@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Main() {
 
@@ -13,6 +13,10 @@ export default function Main() {
             .catch(err => console.log(err))
         return
     }
+
+    useEffect(() => {
+        getPosts();
+    }, [])
 
     return (
         <div className="mainContent">
