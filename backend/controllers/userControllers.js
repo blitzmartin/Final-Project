@@ -5,7 +5,7 @@ const postsModel = require("../models/postsModel");
 function showPosts(req, res) {
   postsModel.find({})
   .then(data => {
-    res.json(data, req.user); 
+    res.status(200).json(data);
   })
   .catch((err) => console.error(err.message))
 }
