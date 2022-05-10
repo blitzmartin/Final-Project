@@ -2,13 +2,29 @@ const postsModel = require("../models/postsModel");
 const userModel = require('../models/userModel')
 // GET for /user/home (private)
 // Load all posts
-function showPosts(req, res) {
-  postsModel.find({})  // CHANGE THIS WITH POPULATE !!
+/* function showPosts(req, res) {
+  postsModel.find({}) 
     .then(data => {
       res.status(200).json(data);
     })
     .catch((err) => console.log(err))
-}
+} */
+
+async function showPosts (req, res) {
+    
+  try {
+      
+      let userID = req.user.id;
+      const user = await userModel.findOne({_id: userID}).populate('postsid');
+      const allPosts = user.postsid;
+      
+      console.log(allPosts);
+      return res.json({allPosts});
+   } catch (err) {
+      console.log(err)
+      }
+  };
+
 
 // GET for /user/home/:id (private)
 // Load one post
@@ -74,8 +90,8 @@ const deleteFromPosts = function (req, res) {
 const deletePost = function (req, res) {
   postsModel.findByIdAndRemove({ _id: req.body.postid })
     .then(data => {
-        console.log(data);
-        res.status(200).json(data)
+      console.log(data);
+      res.status(200).json(data)
     })
     .catch((err) => console.log(err))
 }

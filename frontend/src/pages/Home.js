@@ -23,7 +23,7 @@ export default function Main() {
         <div className="mainContent">
             <h1>MY BLOG</h1>
             <h2>Daily journal for every user</h2>
-
+        
             {posts.slice(0).reverse().map((post) => {
                 return (
                     <div key={post._id}>
