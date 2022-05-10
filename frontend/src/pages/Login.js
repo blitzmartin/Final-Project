@@ -4,7 +4,7 @@ import { UserContext } from "../App";
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function Login() {
-  
+
   const { setUser, setAuth } = useContext(UserContext);
   const [userData, setUserData] = useState({
     username: "",
@@ -38,7 +38,7 @@ export default function Login() {
         password: userData.password
       })
     };
-    fetch("/login", requestOptions)
+    fetch("/auth/login", requestOptions)
       .then(res => {
         if (res.status === 200) {
           setAuth(true);
@@ -59,7 +59,7 @@ export default function Login() {
         <input className="loginInput" type='text' name="username" placeholder='Username' onChange={handleChange} value={userData.username} />
         <input className="loginInput" type='password' name='password' placeholder='Password' onChange={handleChange} value={userData.password} />
         <button className="loginBtn" onClick={handleClick}>Login</button>
-        <div><Link to="/register">Click here to register</Link></div>
+        <div><Link to="/register">Not a member? Register here</Link></div>
       </div>
     </>
   )
