@@ -1,5 +1,5 @@
 const postsModel = require("../models/postsModel");
-
+const userModel = require('../models/userModel')
 // GET for /user/home (private)
 // Load all posts
 function showPosts(req, res) {
