@@ -10,20 +10,16 @@ const userModel = require('../models/userModel')
     .catch((err) => console.log(err))
 } */
 
-async function showPosts (req, res) {
-    
+async function showPosts(req, res) {
   try {
-      
-      let userID = req.user.id;
-      const user = await userModel.findOne({_id: userID}).populate('postsid');
-      const allPosts = user.postsid;
-      
-      console.log(allPosts);
-      return res.json({allPosts});
-   } catch (err) {
-      console.log(err)
-      }
-  };
+    const user = await userModel.findOne({ _id: req.user.id }).populate('postsid');
+    const userPosts = user.postsid;
+    return res.json(userPosts);
+  }
+  catch (err) {
+    console.log(err)
+  }
+};
 
 
 // GET for /user/home/:id (private)

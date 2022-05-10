@@ -10,6 +10,7 @@ export default function Main() {
             .then(res => res.json())
             .then(data => {
                 setPosts(data);
+                console.log("THIS IS WHATS FETCHED: " + data)
             })
             .catch(err => console.log(err))
         return
@@ -17,7 +18,7 @@ export default function Main() {
 
     useEffect(() => {
         getPosts();
-    }, [])
+    })
 
     return (
         <div className="mainContent">
