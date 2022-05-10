@@ -81,6 +81,17 @@ h1, h2, h3, p {
 
 a {
   text-decoration: none;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--color-accent);
+}
+
+.title {
+  font-weight: bold;
 }
 
 

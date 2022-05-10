@@ -27,7 +27,7 @@ export default function Main() {
             {posts.slice(0).reverse().map((post) => {
                 return (
                     <div key={post._id}>
-                        <h3><Link
+                        <h3 className='title'><Link
                             to={`/home/${post._id}`}
                         >{post.title}</Link></h3>
                         <h4><em>{post.date}</em></h4>
