@@ -10,6 +10,7 @@ import NotFound from './pages/NotFound'
 import Home from './pages/Home'
 import OnePost from './pages/OnePost'
 import NewPost from './pages/NewPost'
+import { RequireAuth } from "./contexts/RequireAuth";
 
 export const UserContext = React.createContext();
 
@@ -26,9 +27,9 @@ function App() {
             <Routes>
               <Route path='*' element={<NotFound />} />
               <Route path='/' element={<Login />} />
-              <Route path='/home' element={<Home />} />
-              <Route path='/home/:id' element={<OnePost />} />
-              <Route path='/newpost' element={<NewPost />} />
+              <Route path='/home' element={<RequireAuth><Home /></RequireAuth>} />
+              <Route path='/home/:id' element={<RequireAuth><OnePost /></RequireAuth>} />
+              <Route path='/newpost' element={<RequireAuth><NewPost /></RequireAuth>} />
               <Route path='/register' element={<Register />} />
             </Routes>
           </Router>
