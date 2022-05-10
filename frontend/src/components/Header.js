@@ -21,7 +21,6 @@ export default function Header() {
             <li key="Logout"><Logout /></li>
           </>
         }
-
       </ul>
     </div>
   )

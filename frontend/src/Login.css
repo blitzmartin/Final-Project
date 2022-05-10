@@ -65,4 +65,21 @@
     background-color: var(--color-accent);
     color: var(--color-primary); 
   }
+
+  
+.logoutBtn {
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 200;
+  padding: auto 15px;
+  background-color: #F5F5F5;
+  height: 100%;
+  color: #282c34;
+}
+
+.logoutBtn:hover {
+  background-color: #282c34;
+  color: #F5F5F5;
+}
+
   
