@@ -71,15 +71,15 @@
   border: none;
   font-size: 1.2rem;
   font-weight: 200;
-  padding: auto 15px;
+  padding:0;
   background-color: #F5F5F5;
   height: 100%;
   color: #282c34;
+  margin-left: 10px;
 }
 
 .logoutBtn:hover {
-  background-color: #282c34;
-  color: #F5F5F5;
+  color: var(--color-accent);
 }
 
   

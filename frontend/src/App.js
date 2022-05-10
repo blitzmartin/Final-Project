@@ -22,25 +22,25 @@ function App() {
   return (
     <>
       <div className="App">
-        {isLoading
-          ? <div class="loader">Loading...</div>
-          : (
-            <UserContext.Provider value={{ user, setUser, auth, setAuth }}>
-              <Router>
-                <Header />
-                <Routes>
-                  <Route path='*' element={<NotFound />} />
-                  <Route path='/' element={<Login />} />
-                  <Route path='/home' element={<RequireAuth><Home /></RequireAuth>} />
-                  <Route path='/home/:id' element={<RequireAuth><OnePost /></RequireAuth>} />
-                  <Route path='/newpost' element={<RequireAuth><NewPost /></RequireAuth>} />
-                  <Route path='/register' element={<Register />} />
-                </Routes>
-              </Router>
-              <Footer />
-            </UserContext.Provider>
-          )
-        }
+          {isLoading
+            ? <div class="loader">Loading...</div>
+            : (
+              <UserContext.Provider value={{ user, setUser, auth, setAuth }}>
+                <Router>
+                  <Header />
+                  <Routes>
+                    <Route path='*' element={<NotFound />} />
+                    <Route path='/' element={<Login />} />
+                    <Route path='/home' element={<RequireAuth><Home /></RequireAuth>} />
+                    <Route path='/home/:id' element={<RequireAuth><OnePost /></RequireAuth>} />
+                    <Route path='/newpost' element={<RequireAuth><NewPost /></RequireAuth>} />
+                    <Route path='/register' element={<Register />} />
+                  </Routes>
+                </Router>
+                <Footer />
+              </UserContext.Provider>
+            )
+          }
       </div>
     </>
   );

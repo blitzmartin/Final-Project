@@ -24,7 +24,7 @@ export default function Main() {
             <h1>MY BLOG</h1>
             <h2>Daily journal for every user</h2>
 
-            {posts.map((post) => {
+            {posts.slice(0).reverse().map((post) => {
                 return (
                     <div key={post._id}>
                         <h3><Link
