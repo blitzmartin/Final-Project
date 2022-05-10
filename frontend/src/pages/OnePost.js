@@ -29,7 +29,7 @@ export default function Main() {
 
     useEffect(() => {
         getOnePost();
-    }, [])
+    })
 
     function handleClick(){
         const requestOptions = {

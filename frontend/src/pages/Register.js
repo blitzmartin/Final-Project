@@ -1,16 +1,16 @@
 import '../Login.css'
-import { useContext, useState } from "react";
-import { UserContext } from "../App";
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 export default function Register() {
 
+    const navigate = useNavigate();
     const [userData, setUserData] = useState({
         username: "",
         password: ""
     })
-    const navigate = useNavigate();
 
+    
     function handleChange(e) {
         const { value, name } = e.target;
         setUserData((prevValue) => {
@@ -29,26 +29,24 @@ export default function Register() {
     }
 
     function handleClick() {
-        /*         const requestOptions = {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        username: userData.username,
-                        password: userData.password
-                    })
-                };
-                fetch("/register", requestOptions)
-                    .then(res => {
-                        if (res.status === 200) {
-                            setAuth(true);
-                            setUser(userData.username)
-                            navigate('/login', { replace: true });
-                        }
-                        setUserData({
-                            username: "",
-                            password: ""
-                        });
-                    }); */
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                username: userData.username,
+                password: userData.password
+            })
+        };
+        fetch("/register", requestOptions)
+            .then(res => {
+                if (res.status === 200) {
+                    navigate('/login', { replace: true });
+                }
+                setUserData({
+                    username: "",
+                    password: ""
+                });
+            });
     }
 
     return (
