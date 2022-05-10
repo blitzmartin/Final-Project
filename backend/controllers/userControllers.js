@@ -10,10 +10,19 @@ const userModel = require('../models/userModel')
     .catch((err) => console.log(err))
 } */
 
+
+// NOTE: something weird is happening when adding new post and going back to homepage, not keeping the login?
+// when I log with another user it always finds the first one (annalisa)
 async function showPosts(req, res) {
   try {
-    const user = await userModel.findOne({ _id: req.user.id }).populate('postsid');
+    let userID = req.user.id;
+    let username = req.user.username;
+    console.log("//////////////////////////////////////////////");
+    console.log("THE USER ID IS: " + username)
+    console.log("//////////////////////////////////////////////");
+    const user = await userModel.findOne({ _id: userID }).populate('postsid');
     const userPosts = user.postsid;
+    console.log(userPosts)
     return res.json(userPosts);
   }
   catch (err) {
