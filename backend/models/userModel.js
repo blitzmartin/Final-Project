@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     username: { type: String },
     password: { type: String },
-    posts: [{
+    postsid: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
         default: []

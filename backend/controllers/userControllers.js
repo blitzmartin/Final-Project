@@ -3,7 +3,7 @@ const userModel = require('../models/userModel')
 // GET for /user/home (private)
 // Load all posts
 function showPosts(req, res) {
-  postsModel.find({})
+  postsModel.find({})  // CHANGE THIS WITH POPULATE !!
     .then(data => {
       res.status(200).json(data);
     })
@@ -36,6 +36,9 @@ async function createPost(req, res, next) {
       content: req.body.content,
       date: date
     })
+    const user = await userModel.findOne({ username: req.body.username })
+    user.postsid.push(newPost._id);
+    user.save()
     res.status(200).json({
       title: newPost.title,
       content: newPost.content
@@ -45,6 +48,26 @@ async function createPost(req, res, next) {
     next(error);
   }
 }
+
+/* const addToUser = function (req, res) {
+  userModel.findOne({ username: req.body.username })
+    .then(user => {
+      user.posts.push(req.body.postid);
+      user.save()
+      res.status(200).json(user)
+    })
+    .catch((err) => console.error(err.message))
+} */
+/* 
+const deleteFromPosts = function (req, res) {
+  userModel.findOne({ username: req.body.username })
+    .then(user => {
+        user.posts.pull(req.body.postid);;
+        user.save()
+        res.status(200).json(user)
+    })
+    .catch((err) => console.error(err.message))
+} */
 
 
 // Deletes post
