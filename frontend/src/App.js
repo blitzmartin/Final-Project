@@ -11,34 +11,38 @@ import Home from './pages/Home'
 import OnePost from './pages/OnePost'
 import NewPost from './pages/NewPost'
 import { RequireAuth } from "./contexts/RequireAuth";
+import { useLoader } from "./contexts/LoadContext";
 
 export const UserContext = React.createContext();
 
 function App() {
+  const { isLoading } = useLoader();
   const [user, setUser] = useState("");
   const [auth, setAuth] = useState(false)
   return (
     <>
-
       <div className="App">
-        <UserContext.Provider value={{ user, setUser, auth, setAuth }}>
-          <Router>
-            <Header />
-            <Routes>
-              <Route path='*' element={<NotFound />} />
-              <Route path='/' element={<Login />} />
-              <Route path='/home' element={<RequireAuth><Home /></RequireAuth>} />
-              <Route path='/home/:id' element={<RequireAuth><OnePost /></RequireAuth>} />
-              <Route path='/newpost' element={<RequireAuth><NewPost /></RequireAuth>} />
-              <Route path='/register' element={<Register />} />
-            </Routes>
-          </Router>
-          <Footer />
-        </UserContext.Provider>
+        {isLoading
+          ? <div class="loader">Loading...</div>
+          : (
+            <UserContext.Provider value={{ user, setUser, auth, setAuth }}>
+              <Router>
+                <Header />
+                <Routes>
+                  <Route path='*' element={<NotFound />} />
+                  <Route path='/' element={<Login />} />
+                  <Route path='/home' element={<RequireAuth><Home /></RequireAuth>} />
+                  <Route path='/home/:id' element={<RequireAuth><OnePost /></RequireAuth>} />
+                  <Route path='/newpost' element={<RequireAuth><NewPost /></RequireAuth>} />
+                  <Route path='/register' element={<Register />} />
+                </Routes>
+              </Router>
+              <Footer />
+            </UserContext.Provider>
+          )
+        }
       </div>
-
     </>
-
   );
 }
 
