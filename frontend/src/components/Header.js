@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import Logout from './Logout'
 
 export default function Header() {
   return (
@@ -14,6 +15,7 @@ export default function Header() {
         <li key="login">
           <NavLink to="/">Login</NavLink>
         </li>
+        <li key="Logout"><Logout /></li>
       </ul>
     </div>
   )
