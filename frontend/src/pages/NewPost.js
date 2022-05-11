@@ -1,20 +1,25 @@
 import '../NewPost.css'
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from "../App";
+
 
 export default function NewPost() {
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const { user } = useContext(UserContext);
     const navigate = useNavigate();
 
     function handleClick() {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({
                 title: title,
-                content: content
+                content: content,
+                username: user
             })
         };
         fetch("/user/newpost", requestOptions)

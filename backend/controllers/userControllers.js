@@ -1,14 +1,34 @@
 const postsModel = require("../models/postsModel");
-
+const userModel = require('../models/userModel')
 // GET for /user/home (private)
-// Load all posts
-function showPosts(req, res) {
-  postsModel.find({})
+// Load all posts, old function with no populate
+/* function showPosts(req, res) {
+  postsModel.find({}) 
     .then(data => {
       res.status(200).json(data);
     })
     .catch((err) => console.log(err))
-}
+} */
+
+
+// NOTE: something weird is happening when adding new post and going back to homepage, not keeping the login?
+// when I log with another user it always finds the first one (annalisa)
+async function showPosts(req, res) {
+  try {
+    let userID = req.user.id;
+    let username = req.user.username;
+    console.log("//////////////////////////////////////////////");
+    console.log("THE USER ID IS: " + username)
+    console.log("//////////////////////////////////////////////");
+    const user = await userModel.findOne({ _id: userID }).populate('postsid');
+    const userPosts = user.postsid;
+    return res.json(userPosts);
+  }
+  catch (err) {
+    console.log(err)
+  }
+};
+
 
 // GET for /user/home/:id (private)
 // Load one post
@@ -36,6 +56,9 @@ async function createPost(req, res, next) {
       content: req.body.content,
       date: date
     })
+    const user = await userModel.findOne({ username: req.body.username })
+    user.postsid.push(newPost._id);
+    user.save()
     res.status(200).json({
       title: newPost.title,
       content: newPost.content
@@ -46,13 +69,33 @@ async function createPost(req, res, next) {
   }
 }
 
+/* const addToUser = function (req, res) {
+  userModel.findOne({ username: req.body.username })
+    .then(user => {
+      user.posts.push(req.body.postid);
+      user.save()
+      res.status(200).json(user)
+    })
+    .catch((err) => console.error(err.message))
+} */
+/* 
+const deleteFromPosts = function (req, res) {
+  userModel.findOne({ username: req.body.username })
+    .then(user => {
+        user.posts.pull(req.body.postid);;
+        user.save()
+        res.status(200).json(user)
+    })
+    .catch((err) => console.error(err.message))
+} */
+
 
 // Deletes post
 const deletePost = function (req, res) {
   postsModel.findByIdAndRemove({ _id: req.body.postid })
     .then(data => {
-        console.log(data);
-        res.status(200).json(data)
+      console.log(data);
+      res.status(200).json(data)
     })
     .catch((err) => console.log(err))
 }

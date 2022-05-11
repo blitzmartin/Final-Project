@@ -34,7 +34,7 @@ function initialize(passport) {
     return done(null, user.id)
   })
   passport.deserializeUser(async (id, done) => {
-    const user = await User.findOne({id: id});
+    const user = await User.findOne({_id: id});
     return done(null, user)
   })
 
