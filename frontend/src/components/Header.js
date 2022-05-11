@@ -8,8 +8,11 @@ export default function Header() {
   const { auth } = useContext(UserContext);
   return (
     <nav>
-      <NavLink className="logoContainer" to="/home"><img className="logo" src="./images/inkwell.png" /><h2>Ink Drop</h2></NavLink>
+      <NavLink className="logoContainer" to="/home"><img className="logo" src="./images/inkwell-logo.png" alt="logo" /><h2>InkWell</h2></NavLink>
       <ul className="nav-bar">
+        <li key="home">
+          <NavLink to="/about">About</NavLink>
+        </li>
         {auth === true &&
           <>
             <li key="home">

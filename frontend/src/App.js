@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import './App.css';
 
 import Login from "./pages/Login"
+import About from "./pages/About"
 import Register from "./pages/Register"
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -26,6 +27,7 @@ function App() {
               <Routes>
                 <Route path='*' element={<NotFound />} />
                 <Route path='/' element={<Login />} />
+                <Route path='/about' element={<About />} />
                 <Route path='/home' element={<RequireAuth><Home /></RequireAuth>} />
                 <Route path='/home/:id' element={<RequireAuth><OnePost /></RequireAuth>} />
                 <Route path='/newpost' element={<RequireAuth><NewPost /></RequireAuth>} />

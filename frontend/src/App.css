@@ -3,8 +3,8 @@
 :root {
   --color-light: whitesmoke;
   --color-dark: #282c34;
-  --color-primary: #0a4095;
-  --color-accent: #d423a2;
+  --color-primary: #37465c;
+  --color-accent: #ba65a2;
   --font-primary: 'Roboto Flex', sans-serif;
   --font-accent: 'Playfair Display', serif;
 }
@@ -72,11 +72,14 @@ nav {
 
 .logoContainer {
   display: flex;
+  align-items: center;
 }
 
 .logo {
   max-width: 7%;
   height: auto;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 /******** NAVBAR ********/
@@ -155,6 +158,12 @@ a:hover {
   color: var(--color-dark);
 }
 
+
+/******** ABOUT ********/
+.classicList{
+  list-style-type: circle;
+  margin: 1rem;
+}
 
 /******** FOOTER ********/
 .Footer {
