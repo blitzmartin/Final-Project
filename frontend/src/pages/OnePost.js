@@ -50,10 +50,10 @@ export default function Main() {
     return (
         <div className="mainContent">
                     <div key={post._id}>
-                        <h3>TITLE: {post.title}</h3>
-                        <h4><em>DATE: {post.date}</em></h4>
-                        <p>CONTENT: {post.content}</p>
-                        <button onClick={handleClick}>Delete</button>
+                        <h3 className='title'>{post.title}</h3>
+                        <h4><em>{post.date}</em></h4>
+                        <p className='postContent'>{post.content}</p>
+                        <button className="deleteBtn" onClick={handleClick}>Delete</button>
                     </div>
         </div>
     )

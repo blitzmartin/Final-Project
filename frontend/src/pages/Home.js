@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { UserContext } from "../App";
 
 export default function Main() {
 
     const [posts, setPosts] = useState([]);
+    const { user } = useContext(UserContext);
 
     function getPosts() {
         const requestOptions = {
@@ -26,16 +28,16 @@ export default function Main() {
 
     return (
         <div className="mainContent">
-            <h1>MY BLOG</h1>
+            <h1>{user}'s journal</h1>
             <h2>Daily journal for every user</h2>
+            <hr />
         
             {posts.slice(0).reverse().map((post) => {
                 return (
-                    <div key={post._id}>
+                    <div className='singlePost' key={post._id}>
                         <h3 className='title'><Link
                             to={`/home/${post._id}`}
                         >{post.title}</Link></h3>
-                        <h4><em>{post.date}</em></h4>
                         <p>{post.content.substring(0, 200)}...<Link
                             to={`/home/${post._id}`}
                         >Read more...</Link></p>

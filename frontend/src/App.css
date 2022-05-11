@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;700&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,600;8..144,700&display=swap');
 
-:root{
+:root {
   --color-light: whitesmoke;
-  --color-dark:  #282c34;
+  --color-dark: #282c34;
   --color-primary: #0a4095;
   --color-accent: #d423a2;
-  --font-primary: 'Roboto', sans-serif;
-  --font-accent: 'Merriweather Sans', sans-serif;
+  --font-primary: 'Roboto Flex', sans-serif;
+  --font-accent: 'Playfair Display', serif;
 }
 
 .App {
@@ -18,29 +18,39 @@
   font-size: 1rem;
 }
 
-h1, h2 {
+hr {
+  width: 100%;
+  margin: 2rem 0 1rem 0;
+}
+
+h1,
+h2 {
   font-family: var(--font-primary);
   font-family: var(--font-accent);
   font-weight: bold;
 }
 
-h1{
+h1 {
   color: var(--color-accent);
   font-size: 2.5rem;
-  padding-top: 1rem; /*  added to main one ? */
+  padding-top: 1rem;
+  /*  added to main one ? */
 }
 
-h2{
+h2 {
   color: var(--color-primary);
   font-size: 1.5rem;
 }
 
-h3{
+h3 {
   color: var(--color-primary);
   font-size: 1.2rem;
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin: 0.5rem 0 0.7rem 0;
 }
 
@@ -57,6 +67,15 @@ nav {
   font-size: 1.5rem;
   color: var(--color-dark);
   padding: 0.4rem 1rem;
+}
+
+.logoContainer {
+  display: flex;
+}
+
+.logo {
+  max-width: 7%;
+  height: auto;
 }
 
 /******** NAVBAR ********/
@@ -79,7 +98,6 @@ nav {
 }
 
 .nav-bar li a:hover {
-  text-decoration: overline;
   color: var(--color-accent);
 }
 
@@ -90,12 +108,16 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
   color: var(--color-accent);
 }
 
 .title {
   font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.singlePost {
+  margin: 3rem 0;
 }
 
 
@@ -112,30 +134,54 @@ a:hover {
   font-size: 0.8rem;
 }
 
-.Footer h4{
+.Footer h4 {
   margin-top: 0.2rem;
 }
 
-.Footer a{
+.Footer a {
   color: white;
   margin: 0 0.3rem;
 }
 
-.Footer a:hover{
+.Footer a:hover {
   color: var(--color-accent);
 }
 
 /******** MAIN CONTENT ********/
 .mainContent {
-  margin: 0 20%;
+  margin: 3.2rem 20%;
   text-align: left;
+}
+
+.postContent {
+  margin: 2rem 0;
+}
+
+.deleteBtn {
+  appearance: none;
+  outline: 0;
+  background-color: var(--color-primary);
+  border: 0;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  color: white;
+  border-radius: 3px;
+  width: 120px;
+  font-size: 16px;
+}
+
+.deleteBtn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
 }
 
 
 /* LOADER */
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid var(--color-primary); /* Blue */
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid var(--color-primary);
+  /* Blue */
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -143,6 +189,11 @@ a:hover {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
