@@ -1,7 +1,7 @@
 const postsModel = require("../models/postsModel");
 const userModel = require('../models/userModel')
 // GET for /user/home (private)
-// Load all posts
+// Load all posts, old function with no populate
 /* function showPosts(req, res) {
   postsModel.find({}) 
     .then(data => {
