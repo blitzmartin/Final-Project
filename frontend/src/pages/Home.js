@@ -6,7 +6,12 @@ export default function Main() {
     const [posts, setPosts] = useState([]);
 
     function getPosts() {
-        fetch('/user/home')
+        const requestOptions = {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include'
+        };
+        fetch('/user/home', requestOptions)
             .then(res => res.json())
             .then(data => {
                 setPosts(data);

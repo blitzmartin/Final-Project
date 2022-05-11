@@ -15,6 +15,7 @@ export default function NewPost() {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({
                 title: title,
                 content: content,

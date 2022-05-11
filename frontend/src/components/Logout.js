@@ -11,6 +11,7 @@ export default function Logout() {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
       body: ""
     };
     fetch("/auth/logout", requestOptions)

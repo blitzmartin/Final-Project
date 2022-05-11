@@ -22,7 +22,6 @@ async function showPosts(req, res) {
     console.log("//////////////////////////////////////////////");
     const user = await userModel.findOne({ _id: userID }).populate('postsid');
     const userPosts = user.postsid;
-    console.log(userPosts)
     return res.json(userPosts);
   }
   catch (err) {
