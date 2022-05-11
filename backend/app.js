@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const MongoStore = require('connect-mongo');
 
 //NEW modules
 const passport = require('passport');
@@ -47,12 +48,24 @@ app.use(function (req, res, next) {
 
 //NEW express session
 app.use(flash());
+const sessionStore = new MongoStore({
+  mongoUrl: process.env.DB_SERVER,
+  collection: "sessions",
+});
+
 app.use(session({
   secret: process.env.SESSION_KEY,
   resave: false,
-  saveUninitialized: false,
-  cookie: {maxAge: 60 * 60 * 1000}
-}))
+  saveUninitialized: true,
+  store: sessionStore,
+  unset: "destroy",
+  cookie: {
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60 * 24,
+    sameSite: true,
+    secure: false   //change to true if on Heroku?
+  },
+}));
 
 // Set views and public folders and use body parser
 app.use(express.urlencoded({extended: true}));
