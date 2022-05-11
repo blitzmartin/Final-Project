@@ -51,7 +51,8 @@ async function createPost(req, res, next) {
     const newPost = await postsModel.create({
       title: req.body.title,
       content: req.body.content,
-      date: date
+      date: date,
+      image: image
     })
     const user = await userModel.findOne({ username: req.body.username })
     user.postsid.push(newPost._id);

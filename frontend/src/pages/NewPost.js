@@ -31,12 +31,20 @@ export default function NewPost() {
                     setTitle(title)
                     setContent(content)
                     setImage(image)
-                    navigate('/home', { replace: true });
+                   /*  navigate('/home', { replace: true }); */
                 }
                 setTitle("");
                 setContent("");
                 setImage(null)
             });
+        axios.post('/user/newpost')
+        .then(res => {
+            if (res.status === 200) {
+                setImage(image)
+                navigate('/home', { replace: true });
+            }
+            setImage(null)
+        });
     }
 
     return (
