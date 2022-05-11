@@ -17,9 +17,6 @@ async function showPosts(req, res) {
   try {
     let userID = req.user.id;
     let username = req.user.username;
-    console.log("//////////////////////////////////////////////");
-    console.log("THE USER ID IS: " + username)
-    console.log("//////////////////////////////////////////////");
     const user = await userModel.findOne({ _id: userID }).populate('postsid');
     const userPosts = user.postsid;
     return res.json(userPosts);
@@ -68,27 +65,6 @@ async function createPost(req, res, next) {
     next(error);
   }
 }
-
-/* const addToUser = function (req, res) {
-  userModel.findOne({ username: req.body.username })
-    .then(user => {
-      user.posts.push(req.body.postid);
-      user.save()
-      res.status(200).json(user)
-    })
-    .catch((err) => console.error(err.message))
-} */
-/* 
-const deleteFromPosts = function (req, res) {
-  userModel.findOne({ username: req.body.username })
-    .then(user => {
-        user.posts.pull(req.body.postid);;
-        user.save()
-        res.status(200).json(user)
-    })
-    .catch((err) => console.error(err.message))
-} */
-
 
 // Deletes post
 const deletePost = function (req, res) {
