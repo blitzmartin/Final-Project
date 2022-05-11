@@ -11,20 +11,15 @@ import Home from './pages/Home'
 import OnePost from './pages/OnePost'
 import NewPost from './pages/NewPost'
 import { RequireAuth } from "./contexts/RequireAuth";
-import { useLoader } from "./contexts/LoadContext";
 
 export const UserContext = React.createContext();
 
 function App() {
-  const { isLoading } = useLoader();
   const [user, setUser] = useState("");
   const [auth, setAuth] = useState(false)
   return (
     <>
       <div className="App">
-          {isLoading
-            ? <div class="loader">Loading...</div>
-            : (
               <UserContext.Provider value={{ user, setUser, auth, setAuth }}>
                 <Router>
                   <Header />
@@ -39,8 +34,6 @@ function App() {
                 </Router>
                 <Footer />
               </UserContext.Provider>
-            )
-          }
       </div>
     </>
   );
