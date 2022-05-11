@@ -7,7 +7,7 @@ export default function Header() {
 
   const { auth } = useContext(UserContext);
   return (
-    <div className='Header'>
+    <nav>
       <NavLink to="/home"><h2>📝 My Journal</h2></NavLink>
       <ul className="nav-bar">
         {auth === true &&
@@ -22,6 +22,6 @@ export default function Header() {
           </>
         }
       </ul>
-    </div>
+    </nav>
   )
 }

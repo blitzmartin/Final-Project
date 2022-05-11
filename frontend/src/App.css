@@ -45,8 +45,11 @@ h1, h2, h3, p {
 }
 
 /******** HEADER ********/
-.Header {
+nav {
   background-color: var(--color-light);
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
