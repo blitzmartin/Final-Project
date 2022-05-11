@@ -16,6 +16,7 @@
   padding-bottom: 4rem;
   font-family: var(--font-primary);
   font-size: 1rem;
+  color: var(--color-dark)
 }
 
 hr {
@@ -51,7 +52,7 @@ h1,
 h2,
 h3,
 p {
-  margin: 0.5rem 0 0.7rem 0;
+  margin: 0.5rem 0;
 }
 
 /******** HEADER ********/
@@ -121,6 +122,40 @@ a:hover {
 }
 
 
+
+/******** MAIN CONTENT ********/
+.mainContent {
+  margin: 3.2rem 20%;
+  text-align: left;
+}
+
+.mainContent p {
+  margin: 2rem 0;
+}
+
+.mainContent h4 {
+  margin-top: 1rem;
+}
+
+.deleteBtn {
+  appearance: none;
+  outline: 0;
+  background-color: var(--color-primary);
+  border: 0;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  color: white;
+  border-radius: 3px;
+  width: 120px;
+  font-size: 16px;
+}
+
+.deleteBtn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+
 /******** FOOTER ********/
 .Footer {
   text-align: center;
@@ -145,55 +180,4 @@ a:hover {
 
 .Footer a:hover {
   color: var(--color-accent);
-}
-
-/******** MAIN CONTENT ********/
-.mainContent {
-  margin: 3.2rem 20%;
-  text-align: left;
-}
-
-.postContent {
-  margin: 2rem 0;
-}
-
-.deleteBtn {
-  appearance: none;
-  outline: 0;
-  background-color: var(--color-primary);
-  border: 0;
-  padding: 10px 12px;
-  margin-bottom: 15px;
-  color: white;
-  border-radius: 3px;
-  width: 120px;
-  font-size: 16px;
-}
-
-.deleteBtn:hover {
-  background-color: var(--color-accent);
-  color: var(--color-dark);
-}
-
-
-/* LOADER */
-.loader {
-  border: 16px solid #f3f3f3;
-  /* Light grey */
-  border-top: 16px solid var(--color-primary);
-  /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
