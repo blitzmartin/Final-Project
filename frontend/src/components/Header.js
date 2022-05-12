@@ -13,8 +13,8 @@ export default function Header() {
         <li key="home">
           <NavLink to="/about">About</NavLink>
         </li>
-        {auth === true &&
-          <>
+        {auth === true
+          ? <>
             <li key="home">
               <NavLink to="/home">Home</NavLink>
             </li>
@@ -23,6 +23,7 @@ export default function Header() {
             </li>
             <li key="Logout"><Logout /></li>
           </>
+          : <li key="login"><NavLink to="/">Login</NavLink></li>
         }
       </ul>
     </nav>
