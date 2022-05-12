@@ -2,6 +2,8 @@ import { NavLink } from 'react-router-dom'
 import Logout from './Logout'
 import { UserContext } from "../App";
 import { useContext } from "react";
+import Burger from './Burger'
+import Hidden from '@mui/material/Hidden'
 
 export default function Header() {
 
@@ -9,6 +11,7 @@ export default function Header() {
   return (
     <nav>
       <NavLink className="logoContainer" to="/home"><img className="logo" src="./images/inkwell-logo.png" alt="logo" /><h2>InkWell</h2></NavLink>
+      <Hidden smDown>
       <ul className="nav-bar">
         <li key="home">
           <NavLink to="/about">About</NavLink>
@@ -26,6 +29,10 @@ export default function Header() {
           : <li key="login"><NavLink to="/">Login</NavLink></li>
         }
       </ul>
+      </Hidden>
+      <Hidden smUp>
+        <Burger />
+      </Hidden>
     </nav>
   )
 }

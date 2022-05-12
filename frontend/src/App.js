@@ -7,6 +7,7 @@ import Login from "./pages/Login"
 import About from "./pages/About"
 import Register from "./pages/Register"
 import Header from './components/Header'
+import Navbar from './components/Burger'
 import Menu from './components/Menu'
 import Footer from './components/Footer'
 import NotFound from './pages/NotFound'
@@ -25,7 +26,7 @@ function App() {
       <div className="App">
         <UserContext.Provider value={{ user, setUser, auth, setAuth }}>
           <Router>
-            <Menu />
+            <Header />
             <Routes>
                   <Route path='*' element={<NotFound />} />
                   <Route path='/' element={<Login />} />
