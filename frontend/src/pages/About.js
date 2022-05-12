@@ -1,13 +1,21 @@
+import { motion } from "framer-motion"
+
 export default function About() {
     return (
+
         <div className="mainContent">
+            <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1}}
+                transition={{ type: "spring", stiffness: 30, delay: 0.3  }}
+            >
             <h1>About</h1>
             <h2>The benefits of journaling</h2>
             <p>When you were a teenager, you might have kept a diary hidden under your mattress. It was a place to confess your struggles and fears without judgment or punishment. It likely felt good to get all of those thoughts and feelings out of your head and down on paper. The world seemed clearer.</p>
 
             <p>You may have stopped using a diary once you reached adulthood. But the concept and its benefits still apply. Now it&apos;s called journaling. It's simply writing down your thoughts and feelings to understand them more clearly. And if you struggle with stress, depression, or anxiety, keeping a journal can be a great idea. It can help you gain control of your emotions and improve your mental health.</p>
             <p> One of the ways to deal with any overwhelming emotion is to find a healthy way to express yourself. This makes a journal a helpful tool in managing your mental health. Journaling can help you:
-                
+
                 <ul className="classicList">
                     <li key="1">Manage anxiety</li>
                     <li key="2">Reduce stress</li>
@@ -29,7 +37,8 @@ export default function About() {
                     <li key="8">Stay away from alcohol and drugs</li>
                 </ul>
             </p>
-
+          </motion.div>
         </div >
+   
     )
 }
