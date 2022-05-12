@@ -1,4 +1,10 @@
 import * as React from 'react';
+
+import { UserContext } from "../App";
+import { useContext } from "react";
+import { NavLink } from 'react-router-dom'
+import Logout from './Logout'
+
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -48,11 +54,13 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: 'flex-start',
   backgroundColor: 'whitesmoke',
-  color: "#282c34",
-  fontFamily: 'Roboto Flex'
+  color: "#282c34"
 }))
 
 export default function PersistentDrawerRight() {
+
+  const { auth } = useContext(UserContext);
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -83,7 +91,7 @@ export default function PersistentDrawerRight() {
           </IconButton>
         </Toolbar>
       </AppBar>
-     
+
       <Drawer
         sx={{
           width: drawerWidth,
@@ -103,29 +111,35 @@ export default function PersistentDrawerRight() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          <ListItem key="about" disablePadding>
+            <ListItemButton>
+              <NavLink to="/about">About</NavLink>
+            </ListItemButton>
+          </ListItem>
+          {auth === true
+          ?<>
+          <ListItem key="home" disablePadding>
+            <ListItemButton>
+              <NavLink to="/home">Home</NavLink>
+            </ListItemButton>
+          </ListItem>
+          <ListItem key="newpost" disablePadding>
+            <ListItemButton>
+              <NavLink to="/newpost">New Post</NavLink>
+            </ListItemButton>
+          </ListItem>
+          <ListItem key="logout" disablePadding>
+            <ListItemButton>
+              <NavLink to="/logout"><Logout /></NavLink>
+            </ListItemButton>
+          </ListItem>
+          </>
+          :<ListItem key="login" disablePadding>
+            <ListItemButton>
+              <NavLink to="/">Login</NavLink>
+            </ListItemButton>
+          </ListItem>
+           }
         </List>
       </Drawer>
     </Box>
