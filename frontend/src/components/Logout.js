@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../App";
 import { useNavigate } from 'react-router-dom'
-import '../Login.css';
+import '../Form.css';
 
 export default function Logout() {
   const { setUser, setAuth } = useContext(UserContext);

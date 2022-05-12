@@ -37,10 +37,10 @@ export default function NewPost() {
 
     return (
         <div className="newpostContainer">
-            <h2>Compose:</h2>
-            <label className='newpostLabel'>Title:</label>
+            <h1 className='newPosth1'>New post</h1>
+            <label className='newpostLabel'>Keywords of the day:</label>
             <input type='text' placeholder='Title' onChange={(e) => setTitle(e.target.value)} value={title} required />
-            <label className='newpostLabel'>Post:</label>
+            <label className='newpostLabel'>Let your thoughts flow here:</label>
             <textarea placeholder='Write here...' rows="18" col="30" onChange={(e) => setContent(e.target.value)} value={content} required />
             <button className="publishBtn" onClick={handleClick}>Publish</button>
         </div>

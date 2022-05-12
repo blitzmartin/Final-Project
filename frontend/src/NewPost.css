@@ -40,9 +40,15 @@
     margin: 10px auto;
   }
 
+  .newPosth1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
   .newpostLabel {
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 300;
+    color: var(--color-primary)
   }
   
  .publishBtn {
