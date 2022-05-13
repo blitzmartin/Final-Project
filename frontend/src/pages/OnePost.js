@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { motion } from "framer-motion"
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function Main() {
 
@@ -52,13 +53,16 @@ export default function Main() {
         <div className="mainContent">
             <motion.div
                 initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1}}
+                animate={{ x: 0, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 30, delay: 0.3 }}
             >
                 <div key={post._id}>
                     <h3 className='title'>{post.title}</h3>
                     <h4><em>{post.date}</em></h4>
                     <p className='postContent'>{post.content}</p>
+                    <Link to="/home"
+                    ><FaArrowLeft size = '30'/></Link>
+                    <br />
                     <button className="deleteBtn" onClick={handleClick}>Delete</button>
                 </div>
             </motion.div>
