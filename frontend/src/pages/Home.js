@@ -36,6 +36,7 @@ export default function Main() {
             >
                 <h1>Welcome {user}!</h1>
                 <hr />
+                {posts.length === 0 && <h2>There are no posts yet!</h2>}
 
                 {posts.slice(0).reverse().map((post) => {
                     return (
