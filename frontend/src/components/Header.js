@@ -10,7 +10,7 @@ export default function Header() {
   const { auth } = useContext(UserContext);
   return (
     <nav>
-      <NavLink className="logoContainer" to="/home"><img className="logo" src="./images/inkwell-logo.png" alt="logo" /><h2>InkWell</h2></NavLink>
+      <NavLink className="logoContainer" to="/home"><img className="logo" src="./images/inkwell-logo.png" alt="logo" /><h2>InkWellness</h2></NavLink>
       <Hidden smDown>
       <ul className="nav-bar">
         <li key="home">
