@@ -50,7 +50,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: 'flex-start',
   backgroundColor: 'whitesmoke',
-  color: "#282c34"
+  color: "#282c34",
 }))
 
 export default function PersistentDrawerRight() {
@@ -73,8 +73,7 @@ export default function PersistentDrawerRight() {
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} style={{ fontFamily: 'Playfair Display', fontWeight: "bold"}} component="div">
-            InkWellness
+          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} style={{ fontFamily: 'Playfair Display', fontWeight: "bold"}} component="div"><NavLink to="/home">InkWellness</NavLink>
           </Typography>
           <IconButton
             color="inherit"
@@ -108,30 +107,30 @@ export default function PersistentDrawerRight() {
         <Divider />
         <List>
           <ListItem key="about" disablePadding>
-            <ListItemButton>
+            <ListItemButton style={{ fontSize: "2rem"}}>
               <NavLink to="/about">About</NavLink>
             </ListItemButton>
           </ListItem>
           {auth === true
           ?<>
           <ListItem key="home" disablePadding>
-            <ListItemButton>
+            <ListItemButton style={{ fontSize: "2rem"}}>
               <NavLink to="/home">Home</NavLink>
             </ListItemButton>
           </ListItem>
           <ListItem key="newpost" disablePadding>
-            <ListItemButton>
+            <ListItemButton style={{ fontSize: "2rem"}}>
               <NavLink to="/newpost">New Post</NavLink>
             </ListItemButton>
           </ListItem>
           <ListItem key="logout" disablePadding>
-            <ListItemButton>
+            <ListItemButton style={{ fontSize: "2rem"}}>
               <NavLink to="/logout"><Logout /></NavLink>
             </ListItemButton>
           </ListItem>
           </>
           :<ListItem key="login" disablePadding>
-            <ListItemButton>
+            <ListItemButton style={{ fontSize: "2rem"}}>
               <NavLink to="/">Login</NavLink>
             </ListItemButton>
           </ListItem>

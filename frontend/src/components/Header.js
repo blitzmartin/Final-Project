@@ -9,30 +9,34 @@ export default function Header() {
 
   const { auth } = useContext(UserContext);
   return (
-    <nav>
-      <NavLink className="logoContainer" to="/home"><img className="logo" src="./images/inkwell-logo.png" alt="logo" /><h2>InkWellness</h2></NavLink>
+    <>
       <Hidden smDown>
-      <ul className="nav-bar">
-        <li key="home">
-          <NavLink to="/about">About</NavLink>
-        </li>
-        {auth === true
-          ? <>
+        <nav>
+          <NavLink className="logoContainer" to="/home"><img className="logo" src="./images/inkwell-logo.png" alt="logo" /><h2>InkWellness</h2></NavLink>
+          <ul className="nav-bar">
             <li key="home">
-              <NavLink to="/home">Home</NavLink>
+              <NavLink to="/about">About</NavLink>
             </li>
-            <li key="newpost">
-              <NavLink to="/newpost">New post</NavLink>
-            </li>
-            <li key="Logout"><Logout /></li>
-          </>
-          : <li key="login"><NavLink to="/">Login</NavLink></li>
-        }
-      </ul>
-      </Hidden>
+            {auth === true
+              ? <>
+                <li key="home">
+                  <NavLink to="/home">Home</NavLink>
+                </li>
+                <li key="newpost">
+                  <NavLink to="/newpost">New post</NavLink>
+                </li>
+                <li key="Logout"><Logout /></li>
+              </>
+              : <li key="login"><NavLink to="/">Login</NavLink></li>
+            }
+          </ul>
+
+        </nav>
+      </Hidden >
       <Hidden smUp>
         <Burger />
       </Hidden>
-    </nav>
+    </>
+
   )
 }
