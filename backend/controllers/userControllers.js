@@ -1,18 +1,8 @@
 const postsModel = require("../models/postsModel");
 const userModel = require('../models/userModel')
+
 // GET for /user/home (private)
 // Load all posts, old function with no populate
-/* function showPosts(req, res) {
-  postsModel.find({}) 
-    .then(data => {
-      res.status(200).json(data);
-    })
-    .catch((err) => console.log(err))
-} */
-
-
-// NOTE: something weird is happening when adding new post and going back to homepage, not keeping the login?
-// when I log with another user it always finds the first one (annalisa)
 async function showPosts(req, res) {
   try {
     let userID = req.user.id;
@@ -66,6 +56,26 @@ async function createPost(req, res, next) {
   }
 }
 
+// POST for /user/deletepost
+// Deletes post
+const deletePost = function (req, res) {
+  postsModel.findByIdAndRemove({ _id: req.body.postid })
+    .then(data => {
+      console.log(data);
+      res.status(200).json(data)
+    })
+    .catch((err) => console.log(err))
+}
+
+
+module.exports = { showPosts, onePost, createPost, deletePost };
+
+
+
+
+
+
+
 /* const addToUser = function (req, res) {
   userModel.findOne({ username: req.body.username })
     .then(user => {
@@ -84,19 +94,13 @@ const deleteFromPosts = function (req, res) {
         res.status(200).json(user)
     })
     .catch((err) => console.error(err.message))
-} */
+} 
 
-
-// Deletes post
-const deletePost = function (req, res) {
-  postsModel.findByIdAndRemove({ _id: req.body.postid })
+function showPosts(req, res) {
+  postsModel.find({}) 
     .then(data => {
-      console.log(data);
-      res.status(200).json(data)
+      res.status(200).json(data);
     })
     .catch((err) => console.log(err))
-}
+} */
 
-
-
-module.exports = { showPosts, onePost, createPost, deletePost };

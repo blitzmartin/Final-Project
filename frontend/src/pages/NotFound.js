@@ -1,9 +1,9 @@
 export default function NotFound() {
     return (
         <div className='notFoundWrapper'>
-            <h1>404 not found!</h1>
-            <h3>Something went wrong...</h3>
-            <img src="/images/404_computer.png" alt="404-error" />
+            <h2 style={{fontSize: "7rem"}}>404</h2>
+            <h3>Ops! Something went wrong...</h3>
+            <img style={{width: "10%"}} src="/images/404_computer.png" alt="404-error" />
         </div>
     )
 }
