@@ -7,8 +7,6 @@ import Login from "./pages/Login"
 import About from "./pages/About"
 import Register from "./pages/Register"
 import Header from './components/Header'
-import Navbar from './components/Burger'
-import Menu from './components/Menu'
 import Footer from './components/Footer'
 import NotFound from './pages/NotFound'
 import Home from './pages/Home'
